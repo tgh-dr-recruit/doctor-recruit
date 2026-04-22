@@ -98,6 +98,87 @@
 
     .nav-cta:hover { background: var(--accent-deep) !important; }
 
+    /* ─── HAMBURGER MENU ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 200;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.is-open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .nav-hamburger.is-open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .nav-hamburger.is-open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* ─── MOBILE DRAWER ─── */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0; right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 24px 32px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 0;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .nav-drawer.is-open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .nav-drawer a {
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: var(--dark-gray);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-weight: 400;
+      display: block;
+      transition: color 0.2s;
+    }
+    .nav-drawer a:last-child {
+      border-bottom: none;
+      margin-top: 16px;
+      padding: 14px 0;
+      background: var(--accent);
+      color: var(--white) !important;
+      text-align: center;
+      border-radius: 2px;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+    }
+    .nav-drawer a:hover { color: var(--accent); }
+
     /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
@@ -802,10 +883,12 @@
     .hero-buttons { animation: fadeUp 0.6s 0.3s ease both; }
     .hero-photo-stats { animation: fadeUp 0.7s 0.5s ease both; }
 
-    /* ─── RESPONSIVE ─── */
+    /* ─── RESPONSIVE: tablet (768px以下) ─── */
     @media (max-width: 768px) {
       header { padding: 0 20px; }
       nav { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-drawer { display: flex; }
 
       section { padding: 70px 20px; }
 
@@ -821,24 +904,98 @@
       .hero::before { display: none; }
       .hero-scroll { display: none; }
 
+      /* バッジを2列×3行に変更 */
       .hero-photo-stats {
-        grid-template-columns: repeat(3, 1fr);
-        bottom: 20px;
-        left: 16px;
-        right: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        top: 16px;
+        left: 12px;
+        right: 12px;
+        gap: 8px;
       }
 
-      .hero-stat-badge { padding: 10px 12px; }
+      .hero-stat-badge {
+        padding: 12px 10px;
+        border-radius: 12px;
+      }
       .hero-stat-badge-num { font-size: 22px; }
+      .hero-stat-badge-label { font-size: 10px; }
+      .hero-stat-badge-icon svg { width: 28px; height: 28px; }
 
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 
-      .conditions-table th { width: 120px; padding: 16px; }
-      .conditions-table td { padding: 16px; }
+      .conditions-table th { width: 100px; padding: 14px 12px; font-size: 12px; }
+      .conditions-table td { padding: 14px 12px; font-size: 13px; }
 
       .hero-buttons { flex-direction: column; }
       .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
+
+      .recruit-grid { grid-template-columns: 1fr; }
+      .flow-steps { gap: 24px; }
+
+      .section-title { font-size: clamp(20px, 5vw, 28px); }
+    }
+
+    /* ─── RESPONSIVE: small smartphone (480px以下) ─── */
+    @media (max-width: 480px) {
+      header { height: 56px; }
+      .nav-drawer { top: 56px; }
+      .hero { padding-top: 56px; }
+
+      section { padding: 56px 16px; }
+
+      .hero-left { padding: 48px 16px 40px; }
+      .hero-title { font-size: clamp(22px, 7vw, 32px); }
+      .hero-desc { font-size: 13px; margin-bottom: 32px; }
+
+      /* バッジを2列のまま、さらにコンパクトに */
+      .hero-photo-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        top: 10px;
+        left: 8px;
+        right: 8px;
+      }
+      .hero-stat-badge {
+        padding: 8px 6px;
+        border-top-width: 2px;
+      }
+      .hero-stat-badge-icon svg { width: 20px; height: 20px; }
+      .hero-stat-badge-num { font-size: 18px; margin-bottom: 0; }
+      .hero-stat-badge-num span { font-size: 11px; }
+      .hero-stat-badge-label { font-size: 9px; line-height: 1.3; }
+
+      .btn-primary, .btn-secondary {
+        padding: 13px 24px;
+        font-size: 13px;
+      }
+
+      .conditions-table th {
+        width: 80px;
+        padding: 12px 10px;
+        font-size: 11px;
+        letter-spacing: 0;
+      }
+      .conditions-table td {
+        padding: 12px 10px;
+        font-size: 12px;
+      }
+
+      .section-en { font-size: 10px; letter-spacing: 0.2em; }
+      .section-title { font-size: clamp(18px, 6vw, 24px); }
+
+      .flow-number { width: 44px; height: 44px; font-size: 16px; }
+      .flow-title { font-size: 14px; }
+      .flow-desc { font-size: 12px; }
+
+      .dept-tag { font-size: 11px; padding: 4px 10px; }
+
+      .contact-text { font-size: 13px; }
+      .contact-item-label { font-size: 9px; letter-spacing: 0.15em; }
+      .contact-item-value { font-size: 12px; }
+
+      footer { padding: 40px 16px 32px; }
+      .footer-logo { font-size: 16px; }
     }
   </style>
 </head>
@@ -856,7 +1013,21 @@
     <a href="#flow">応募の流れ</a>
     <a href="#contact" class="nav-cta">お問い合わせ</a>
   </nav>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#about" class="drawer-link">病院について</a>
+  <a href="#recruit" class="drawer-link">募集科目</a>
+  <a href="#conditions" class="drawer-link">勤務条件</a>
+  <a href="#flow" class="drawer-link">応募の流れ</a>
+  <a href="#contact" class="drawer-link">お問い合わせ</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -1195,5 +1366,33 @@
   <div class="footer-copy">© 2026 医療法人財団健貢会 総合東京病院. All Rights Reserved.</div>
 </footer>
 
+<script>
+  // ─── ハンバーガーメニュー ───
+  const hamburger = document.getElementById('hamburger');
+  const navDrawer = document.getElementById('navDrawer');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('is-open');
+    navDrawer.classList.toggle('is-open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  // ドロワーのリンクをクリックしたら閉じる
+  navDrawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('is-open');
+      navDrawer.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ドロワー外をタップしたら閉じる
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navDrawer.contains(e.target)) {
+      hamburger.classList.remove('is-open');
+      navDrawer.classList.remove('is-open');
+    }
+  });
+</script>
 </body>
 </html>
