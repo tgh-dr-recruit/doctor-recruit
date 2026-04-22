@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【診療科名】 常勤医師募集 | 総合東京病院</title>
+  <meta name="description" content="総合東京病院・【診療科名】にて常勤医師を募集しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f7f6f3;
+      --mid-gray: #c8c4bc;
+      --dark-gray: #4a4844;
+      --text: #2c2a28;
+      --accent: #2a5c8f;
+      --accent-light: #e8f0f8;
+      --accent-deep: #1a3d5c;
+      --gold: #b8956a;
+      --border: #dedad4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      text-decoration: none;
+    }
+
+    .header-logo-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .header-logo-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--text);
+    }
+
+    .header-back {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .header-back:hover { opacity: 0.7; }
+
+    /* ─── HERO（常勤：標準ネイビーグラデ） ─── */
+    .page-hero {
+      padding-top: 64px;
+      background: linear-gradient(135deg, #3a7abf 0%, var(--accent) 40%, var(--accent-deep) 100%);
+      padding-bottom: 48px;
+    }
+
+    .page-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 40px 0;
+    }
+
+    .page-hero-dept {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .page-hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .page-hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      padding: 5px 16px;
+      border-radius: 20px;
+    }
+
+    /* ─── MAIN ─── */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 40px 80px;
+    }
+
+    .sec { margin-bottom: 56px; }
+
+    .sec-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .sec-label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .sec-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sec p {
+      font-size: 14px;
+      color: var(--dark-gray);
+      line-height: 2.0;
+      margin-bottom: 12px;
+    }
+
+    /* ─── 勤務条件テーブル ─── */
+    .cond-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .cond-table tr { border-bottom: 1px solid var(--border); }
+    .cond-table tr:last-child { border-bottom: none; }
+
+    .cond-table th {
+      width: 160px;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      letter-spacing: 0.05em;
+      vertical-align: top;
+    }
+
+    .cond-table td {
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--dark-gray);
+      line-height: 1.9;
+      vertical-align: top;
+    }
+
+    .salary-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+      padding: 6px 14px;
+      background: var(--accent-light);
+      border-radius: 2px;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    /* ─── 求める人物像 ─── */
+    .req-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .req-list li {
+      font-size: 14px;
+      color: var(--dark-gray);
+      line-height: 1.8;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .req-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 6px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* ─── お問い合わせ ─── */
+    .contact-box {
+      background: var(--accent-deep);
+      border-radius: 4px;
+      padding: 36px 40px;
+    }
+
+    .contact-box p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 2.0;
+      margin-bottom: 24px;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .contact-info-item { display: flex; flex-direction: column; gap: 2px; }
+
+    .contact-info-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.45);
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .contact-info-value { font-size: 14px; color: var(--white); }
+
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--accent-deep);
+      text-decoration: none;
+      padding: 13px 32px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
+      font-weight: 500;
+      transition: background 0.2s;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .btn-contact:hover { background: var(--off-white); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--text);
+      padding: 32px 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      .page-hero-inner { padding: 36px 20px 0; }
+      main { padding: 40px 20px 60px; }
+      .contact-box { padding: 28px 24px; }
+      .cond-table th { width: 100px; padding: 14px; }
+      .cond-table td { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="header-logo">
+    <span class="header-logo-en">Tokyo General Hospital</span>
+    <span class="header-logo-ja">総合東京病院</span>
+  </a>
+  <a href="index.html" class="header-back">← 採用トップへ戻る</a>
+</header>
+
+<!-- ========================================
+     HERO
+     【所属診療科名】【診療科名】を書き換える
+======================================== -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-dept">【所属診療科名】</div>
+    <h1 class="page-hero-title">【診療科名】</h1>
+    <span class="page-hero-badge">常勤医師募集</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- ========================================
+       業務内容　←　実際の内容に書き換える
+  ======================================== -->
+  <div class="sec">
+    <div class="sec-label">DUTIES</div>
+    <h2 class="sec-title">業務内容</h2>
+    <p>【業務内容1。例：外来診療・病棟管理・手術など担当業務の概要を記載】</p>
+    <p>【業務内容2。例：専門的な処置・検査・手術など具体的な業務を記載】</p>
+    <p>【業務内容3。例：設備・スタッフ体制・働きやすさのポイントなどを記載】</p>
+  </div>
+
+  <!-- ========================================
+       勤務条件　←　各行を実際の条件に書き換える
+       不要な行は <tr>〜</tr> ごと削除
+       必要な行は同じ形式で追加
+  ======================================== -->
+  <div class="sec">
+    <div class="sec-label">CONDITIONS</div>
+    <h2 class="sec-title">勤務条件</h2>
+    <table class="cond-table">
+      <tr>
+        <th>勤務地</th>
+        <td>総合東京病院（東京都中野区江古田3-15-2）</td>
+      </tr>
+      <tr>
+        <th>勤務日数</th>
+        <td>週5日（土曜隔週など応相談）</td>
+      </tr>
+      <tr>
+        <th>診療時間</th>
+        <td>【例：外来 8:30〜17:00 / 当直あり（シフト制）など】</td>
+      </tr>
+      <tr>
+        <th>給与・報酬</th>
+        <td>
+          経験・専門・勤務形態を考慮のうえ、個別にご提示します。<br>
+          <span class="salary-note">💬 詳細はお問い合わせください（応相談）</span>
+        </td>
+      </tr>
+      <tr>
+        <th>福利厚生</th>
+        <td>社会保険完備（健康保険・厚生年金・雇用保険・労災保険）<br>
+            住宅補助・学会参加支援・院内研修制度あり</td>
+      </tr>
+      <tr>
+        <th>【項目名】</th>
+        <td>【内容。不要なら行ごと削除】</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ========================================
+       求める人物像　←　箇条書きを書き換える
+       <li>〜</li> の追加・削除は自由
+  ======================================== -->
+  <div class="sec">
+    <div class="sec-label">REQUIREMENTS</div>
+    <h2 class="sec-title">求める人物像・応募資格</h2>
+    <ul class="req-list">
+      <li>医師免許をお持ちの方</li>
+      <li>【求める経験・専門スキルを記載】</li>
+      <li>【関連領域の経験があれば尚可など補足を記載】</li>
+      <li>【チーム医療・コミュニケーション面など人物像を記載】</li>
+      <li>経験年数・資格は問いません。まずはお気軽にご相談ください。</li>
+    </ul>
+  </div>
+
+  <!-- お問い合わせ（変更不要） -->
+  <div class="sec">
+    <div class="sec-label">CONTACT</div>
+    <h2 class="sec-title">お問い合わせ・応募</h2>
+    <div class="contact-box">
+      <p>ご質問・ご相談はお気軽にどうぞ。<br>勤務条件・業務内容など、まずはお話しするところからで構いません。<br>担当者より2〜3営業日以内にご連絡いたします。</p>
+      <div class="contact-info-list">
+        <div class="contact-info-item">
+          <span class="contact-info-label">PHONE</span>
+          <span class="contact-info-value">03-3387-5421（代表）/ 03-3387-5148（総務課）</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">EMAIL</span>
+          <span class="contact-info-value">tgh.dr.recruit@gmail.com</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">HOURS</span>
+          <span class="contact-info-value">平日 9:00〜17:00</span>
+        </div>
+      </div>
+      <a href="mailto:tgh.dr.recruit@gmail.com" class="btn-contact">メールで問い合わせる →</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER（変更不要） -->
+<footer>
+  <div class="footer-logo">総合東京病院</div>
+  <div class="footer-copy">© 2026 医療法人財団健貢会 総合東京病院. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

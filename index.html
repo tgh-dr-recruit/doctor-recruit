@@ -212,7 +212,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 60px 120px 60px;
+      padding: 56px 60px 80px 60px;
       position: relative;
       z-index: 1;
     }
@@ -422,7 +422,7 @@
     }
 
     /* ─── SECTION BASE ─── */
-    section { padding: 100px 40px; }
+    section { padding: 64px 40px; }
 
     .section-inner {
       max-width: 1100px;
@@ -430,7 +430,7 @@
     }
 
     .section-header {
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
 
     .section-en {
@@ -465,7 +465,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 56px;
       align-items: start;
     }
 
@@ -534,15 +534,18 @@
     }
 
     .recruit-card-header {
-      background: var(--accent);
-      padding: 20px 24px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .recruit-card-header.type-jokin { background: var(--accent); }
-    .recruit-card-header.type-hijokin { background: var(--accent-deep); }
+    .recruit-card-header.type-jokin {
+      background: linear-gradient(135deg, #3a7abf 0%, var(--accent) 40%, var(--accent-deep) 100%);
+    }
+    .recruit-card-header.type-hijokin {
+      background: linear-gradient(135deg, #2a5c8f 0%, var(--accent-deep) 40%, #0f2438 100%);
+    }
     .recruit-card-header.type-spot { background: var(--gold); }
 
     .recruit-type-badge {
@@ -556,9 +559,10 @@
 
     .recruit-card-title {
       font-family: 'Noto Serif JP', serif;
-      font-size: 18px;
-      font-weight: 400;
+      font-size: 22px;
+      font-weight: 600;
       color: var(--white);
+      letter-spacing: 0.08em;
     }
 
     .recruit-card-body {
@@ -574,15 +578,24 @@
     }
 
     .dept-tag {
-      font-size: 11px;
-      padding: 4px 12px;
+      font-size: 13px;
+      padding: 7px 16px;
       background: var(--accent-light);
       color: var(--accent);
       border-radius: 20px;
       letter-spacing: 0.05em;
     }
 
-    .recruit-card-body p {
+    .dept-tag-link {
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .dept-tag-link:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
       font-size: 13px;
       color: var(--dark-gray);
       line-height: 1.9;
@@ -691,7 +704,7 @@
     }
 
     .flow-content {
-      padding-bottom: 40px;
+      padding-bottom: 28px;
       flex: 1;
     }
 
@@ -760,7 +773,7 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 4px;
-      padding: 40px;
+      padding: 28px;
     }
 
     .form-group {
@@ -890,7 +903,7 @@
       .nav-hamburger { display: flex; }
       .nav-drawer { display: flex; }
 
-      section { padding: 70px 20px; }
+      section { padding: 48px 20px; }
 
       .hero {
         grid-template-columns: 1fr;
@@ -1164,20 +1177,27 @@
     <div class="recruit-grid">
       <div class="recruit-card">
         <div class="recruit-card-header type-jokin">
-          <div>
-            <div class="recruit-type-badge">FULL-TIME</div>
-            <div class="recruit-card-title">常勤医師</div>
-          </div>
+          <div class="recruit-card-title">常勤医師</div>
         </div>
         <div class="recruit-card-body">
           <div class="recruit-departments">
-            <span class="dept-tag">内科系</span>
-            <span class="dept-tag">外科系</span>
-            <span class="dept-tag">救急科</span>
-            <span class="dept-tag">整形外科</span>
             <span class="dept-tag">脳神経外科</span>
             <span class="dept-tag">循環器内科</span>
-            <span class="dept-tag">その他</span>
+            <span class="dept-tag">消化器内科</span>
+            <span class="dept-tag">整形外科</span>
+            <span class="dept-tag">呼吸器内科</span>
+            <span class="dept-tag">形成外科</span>
+            <span class="dept-tag">リハビリテーション科</span>
+            <span class="dept-tag">脳神経内科</span>
+            <span class="dept-tag">眼科</span>
+            <span class="dept-tag">総合診療科</span>
+            <span class="dept-tag">総合内科</span>
+            <span class="dept-tag">婦人科</span>
+            <span class="dept-tag">救急科</span>
+            <span class="dept-tag">精神科</span>
+            <span class="dept-tag">放射線診断科</span>
+            <span class="dept-tag">放射線治療科</span>
+            <span class="dept-tag">歯科口腔外科</span>
           </div>
           <p>急性期病院での診療全般をご担当いただきます。診療科・専門領域については個別にご相談ください。経験・専門に応じて業務内容を調整します。</p>
           <div class="recruit-note">※ 現在掲載のない診療科もご相談ください</div>
@@ -1185,19 +1205,13 @@
       </div>
       <div class="recruit-card">
         <div class="recruit-card-header type-hijokin">
-          <div>
-            <div class="recruit-type-badge">PART-TIME</div>
-            <div class="recruit-card-title">非常勤医師</div>
-          </div>
+          <div class="recruit-card-title">非常勤医師</div>
         </div>
         <div class="recruit-card-body">
           <div class="recruit-departments">
-            <span class="dept-tag">外来診療</span>
-            <span class="dept-tag">検診業務</span>
-            <span class="dept-tag">専門外来</span>
-            <span class="dept-tag">各診療科</span>
+            <a href="varicose-vein.html" class="dept-tag dept-tag-link">下肢静脈瘤専門外来</a>
           </div>
-          <p>週1〜複数日の外来・検診業務など、ご都合に合わせた勤務が可能です。他院との兼務も歓迎します。専門外来の立ち上げについてもご相談ください。</p>
+          <p>心臓血管外科所属の下肢静脈瘤専門外来にて、外来診療をご担当いただきます。週1日〜ご都合に合わせた勤務が可能です。他院との兼務も歓迎します。</p>
           <div class="recruit-note">※ 曜日・コマ数はご相談に応じます</div>
         </div>
       </div>
